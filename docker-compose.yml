@@ -1,0 +1,21 @@
+version: '2.4'
+services:
+  data:
+    image: 'data:latest'
+    mem_limit: 256m
+    build:
+      context: .
+    ports:
+      - 13001:13001
+      - 54363:54363
+    depends_on:
+      - postgres
+  postgres:
+    image: postgres:12.7
+    mem_limit: 256m
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=springData
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
