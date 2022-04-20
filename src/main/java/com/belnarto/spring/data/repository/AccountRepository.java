@@ -14,4 +14,8 @@ public interface AccountRepository extends CrudRepository<AccountEntity, UUID> {
     long deleteByBalance(BigDecimal balance);
 
     List<AccountEntity> removeByBalance(BigDecimal balance);
+
+    List<AccountEntity> findByCard_Name(String name);
+
+    List<AccountEntity> findByCardType(String type);
 }
